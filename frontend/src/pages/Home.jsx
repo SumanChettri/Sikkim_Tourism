@@ -37,11 +37,11 @@ const Home = () => {
     }
   ]
 
-  const handleSearch = (data) => {
-    setSearchData(data)
-    // Handle search functionality
-    console.log('Search from home:', data)
-  }
+  // const handleSearch = (data) => {
+  //   setSearchData(data)
+  //   // Handle search functionality
+  //   console.log('Search from home:', data)
+  // }
 
   return (
     <div>
@@ -59,7 +59,7 @@ const Home = () => {
               Search for destinations, plan your itinerary, and book your adventure in Sikkim
             </p>
           </div>
-          <SearchBar onSearch={handleSearch} className="max-w-4xl mx-auto" />
+          {/* <SearchBar onSearch={handleSearch} className="max-w-4xl mx-auto" /> */}
         </div>
       </section>
 
