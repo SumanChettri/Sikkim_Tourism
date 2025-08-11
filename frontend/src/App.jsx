@@ -9,6 +9,7 @@ import TaxiBooking from './pages/TaxiBooking'
 import Gallery from './pages/Gallery'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import ItineraryResult from './pages/ItineraryResult'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/itinerary-result" element={<ItineraryResult />} />
           </Routes>
         </main>
         <Footer />
