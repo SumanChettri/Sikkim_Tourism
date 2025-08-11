@@ -18,12 +18,13 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/90 to-secondary/90">
       {/* Background Image Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
-      
+
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
         }}
       ></div>
 
@@ -36,15 +37,14 @@ const HeroSection = () => {
               <span className="block text-accent">Sikkim</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto">
-              Experience the mystical beauty of the Himalayas, ancient monasteries, and pristine landscapes
+              Experience the mystical beauty of the Himalayas, ancient
+              monasteries, and pristine landscapes
             </p>
           </div>
 
-          {/* Search Form */}
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+          {/* <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
             <form onSubmit={handleSearch} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Destination */}
                 <div className="relative">
                   <FaLocationDot className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <input
@@ -56,7 +56,6 @@ const HeroSection = () => {
                   />
                 </div>
 
-                {/* Date */}
                 <div className="relative">
                   <FaCalendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <input
@@ -67,7 +66,6 @@ const HeroSection = () => {
                   />
                 </div>
 
-                {/* Number of Days */}
                 <div className="relative">
                   <FaUsers className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <select
@@ -86,7 +84,6 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Search Button */}
               <button
                 type="submit"
                 className="btn-accent text-lg px-12 py-4 w-full md:w-auto"
@@ -95,6 +92,17 @@ const HeroSection = () => {
                 Search Adventures
               </button>
             </form>
+          </div> */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+            <a href="/destinations" className="btn-accent text-lg px-8 py-3">
+              Browse Destinations
+            </a>
+            <a
+              href="/itinerary-planner"
+              className="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 text-lg"
+            >
+              Plan Your Trip
+            </a>
           </div>
 
           {/* Quick Stats */}
@@ -115,7 +123,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default HeroSection 
