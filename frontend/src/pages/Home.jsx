@@ -17,7 +17,7 @@ const Home = () => {
       location: "Mumbai, India",
       rating: 5,
       comment:
-        "Amazing experience exploring Sikkim! The team at Sikkim Explorer made our trip unforgettable with their local knowledge and excellent service.",
+        "Amazing experience exploring Sikkim! The team at GuideMe Sikkim made our trip unforgettable with their local knowledge and excellent service.",
       image:
         "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
     },
@@ -37,7 +37,7 @@ const Home = () => {
       location: "London, UK",
       rating: 5,
       comment:
-        "Sikkim Explorer exceeded all expectations. From the monasteries to the mountain views, every moment was magical.",
+        "GuideMe Sikkim exceeded all expectations. From the monasteries to the mountain views, every moment was magical.",
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
     },
@@ -53,22 +53,6 @@ const Home = () => {
     <div>
       {/* Hero Section */}
       <HeroSection />
-
-      {/* Search Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Plan Your Perfect Trip
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Search for destinations, plan your itinerary, and book your
-              adventure in Sikkim
-            </p>
-          </div>
-          {/* <SearchBar onSearch={handleSearch} className="max-w-4xl mx-auto" /> */}
-        </div>
-      </section>
 
       {/* Featured Destinations */}
       <section className="section-padding">
@@ -96,7 +80,25 @@ const Home = () => {
         </div>
       </section>
 
+      {/* <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Plan Your Perfect Trip
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Search for destinations, plan your itinerary, and book your
+              adventure in Sikkim
+            </p>
+          </div>
+        </div>
+
+      </section> */}
+
+      {/* Search Section */}
+
       {/* Why Choose Us */}
+          <WhyChooseUs/>
 
       {/* //////////////////////////////// */}
       <WhyChooseUs />

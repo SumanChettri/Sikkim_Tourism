@@ -42,18 +42,6 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center p- m-10">
-            <a href="/destinations" className="btn-accent text-lg px-8 py-3">
-              Browse Destinations
-            </a>
-            <a
-              href="/itinerary-planner"
-              className="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 text-lg"
-            >
-              Plan Your Trip
-            </a>
-          </div>
-          {/* Search Form */}
           {/* <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
             <form onSubmit={handleSearch} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -105,6 +93,17 @@ const HeroSection = () => {
               </button>
             </form>
           </div> */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+            <a href="/destinations" className="btn-accent text-lg px-8 py-3">
+              Browse Destinations
+            </a>
+            <a
+              href="/itinerary-planner"
+              className="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 text-lg"
+            >
+              Plan Your Trip
+            </a>
+          </div>
 
           {/* Quick Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
