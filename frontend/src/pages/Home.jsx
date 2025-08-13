@@ -6,6 +6,7 @@ import DestinationCard from "../components/Destinations";
 import { destinations } from "../data/destinations";
 import { FaStar, FaQuoteLeft } from "react-icons/fa6";
 import WhyChooseUs from "../components/WhyCooseUs";
+import AboutSection from "../components/AboutSection";
 const Home = () => {
   const [searchData, setSearchData] = useState(null);
 
@@ -83,6 +84,9 @@ const Home = () => {
 
       {/* Why Choose Us */}
       <WhyChooseUs/>
+
+      {/* About Section */}
+      <AboutSection />
 
       {/* Testimonials */}
       <section className="py-16 md:py-20 lg:py-24 px-4 bg-gray-50">
