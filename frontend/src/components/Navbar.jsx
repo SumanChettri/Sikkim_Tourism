@@ -19,15 +19,15 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-white/95 backdrop-blur-md shadow-xl sticky top-0 z-50 border-b border-blue-100/50">
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-xl">S</span>
             </div>
-            <span className="text-2xl font-bold text-primary">
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
               GuideMe Sikkim
             </span>
           </Link>
@@ -38,10 +38,10 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`font-medium transition-colors duration-200 ${
+                className={`font-medium transition-all duration-200 ${
                   isActive(link.path)
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-gray-600 hover:text-primary"
+                    ? "text-blue-600 border-b-2 border-blue-500 shadow-sm"
+                    : "text-gray-600 hover:text-blue-600 hover:scale-105"
                 }`}
               >
                 {link.name}
@@ -50,9 +50,9 @@ const Navbar = () => {
           </div>
 
           {/* Search Button */}
-          <div className="hidden lg:flex items-center justify-between space-x-4 bg-blue-400 p-4 rounded-2xl ">
-              <FaMagnifyingGlass className="w-5 h-5 mr-2" />
-            <button className="">
+          <div className="hidden lg:flex items-center space-x-4">
+            <button className="btn-soft glow-blue">
+              <FaMagnifyingGlass className="w-4 h-4 mr-2" />
               Search
             </button>
           </div>
@@ -60,7 +60,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100"
+            className="lg:hidden p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
           >
             {isOpen ? (
               <FaXmark className="w-6 h-6" />
@@ -72,24 +72,24 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden border-t border-gray-200 py-4">
+          <div className="lg:hidden border-t border-gray-200 py-4 bg-white/95 backdrop-blur-md">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`font-medium px-4 py-2 rounded-lg transition-colors duration-200 ${
+                  className={`font-medium px-4 py-2 rounded-lg transition-all duration-200 ${
                     isActive(link.path)
-                      ? "text-primary bg-primary/10"
-                      : "text-gray-600 hover:text-primary hover:bg-gray-100"
+                      ? "text-blue-600 bg-blue-50 border-l-4 border-blue-500"
+                      : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
-              <button className="btn-secondary mx-4">
-                <FaMagnifyingGlass className="w-5 h-5 mr-2" />
+              <button className="btn-soft glow-blue mx-4">
+                <FaMagnifyingGlass className="w-4 h-4 mr-2" />
                 Search
               </button>
             </div>
