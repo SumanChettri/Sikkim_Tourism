@@ -98,10 +98,8 @@ const Home = () => {
       {/* Search Section */}
 
       {/* Why Choose Us */}
-          <WhyChooseUs/>
 
       {/* //////////////////////////////// */}
-      <WhyChooseUs />
       {/* /////////////////////////////// */}
       {/* Testimonials */}
       <section className="section-padding bg-gray-50">
@@ -151,28 +149,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-secondary to-primary text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Explore Sikkim?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Start planning your adventure today and create memories that will
-            last a lifetime
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/destinations" className="btn-accent text-lg px-8 py-3">
-              Browse Destinations
-            </a>
-            <a
-              href="/itinerary-planner"
-              className="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 text-lg"
-            >
-              Plan Your Trip
-            </a>
-          </div>
-        </div>
-      </section>
+     
     </div>
   );
 };

@@ -31,10 +31,10 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-16 ">
+    <section className="py-8 ">
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Heading */}
-        <h2 className="text-3xl font-bold mb-4 ">
+        <h2 className="text-4xl font-bold mb-4 ">
           Why Choose Our AI Travel Planner
         </h2>
         <p className=" mb-12 ">

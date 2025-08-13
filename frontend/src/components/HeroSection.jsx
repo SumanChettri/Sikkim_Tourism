@@ -42,57 +42,6 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-            <form onSubmit={handleSearch} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="relative">
-                  <FaLocationDot className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
-                    type="text"
-                    placeholder="Where do you want to go?"
-                    value={searchData.destination}
-                    onChange={(e) => setSearchData({...searchData, destination: e.target.value})}
-                    className="w-full pl-10 pr-4 py-4 bg-white/90 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50"
-                  />
-                </div>
-
-                <div className="relative">
-                  <FaCalendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
-                    type="date"
-                    value={searchData.date}
-                    onChange={(e) => setSearchData({...searchData, date: e.target.value})}
-                    className="w-full pl-10 pr-4 py-4 bg-white/90 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50"
-                  />
-                </div>
-
-                <div className="relative">
-                  <FaUsers className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <select
-                    value={searchData.days}
-                    onChange={(e) => setSearchData({...searchData, days: e.target.value})}
-                    className="w-full pl-10 pr-4 py-4 bg-white/90 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50"
-                  >
-                    <option value="1">1 Day</option>
-                    <option value="2">2 Days</option>
-                    <option value="3">3 Days</option>
-                    <option value="5">5 Days</option>
-                    <option value="7">1 Week</option>
-                    <option value="10">10 Days</option>
-                    <option value="14">2 Weeks</option>
-                  </select>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="btn-accent text-lg px-12 py-4 w-full md:w-auto"
-              >
-                <FaMagnifyingGlass className="w-6 h-6 mr-2 inline" />
-                Search Adventures
-              </button>
-            </form>
-          </div> */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
             <a href="/destinations" className="btn-accent text-lg px-8 py-3">
               Browse Destinations
