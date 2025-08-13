@@ -1,8 +1,7 @@
 import { useState } from "react";
 import HeroSection from "../components/HeroSection";
 import SearchBar from "../components/SearchBar";
-// import DestinationCard from "../components/DestinationCard";
-import DestinationCard from "../components/Destinations";
+import DestinationCard from "../components/DestinationCard";
 import { destinations } from "../data/destinations";
 import { FaStar, FaQuoteLeft } from "react-icons/fa6";
 import WhyChooseUs from "../components/WhyCooseUs";

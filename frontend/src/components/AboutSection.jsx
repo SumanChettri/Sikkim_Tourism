@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaMountain, FaHeart, FaUsers, FaAward } from 'react-icons/fa6';
+import { FaMountain, FaHeart, FaUsers, FaAward, FaMapMarkedAlt, FaCamera } from 'react-icons/fa6';
 
 const AboutSection = () => {
   const features = [
@@ -23,6 +23,13 @@ const AboutSection = () => {
       title: "Quality Assured",
       description: "Carefully curated experiences with verified local partners"
     }
+  ];
+
+  const stats = [
+    { number: "500+", label: "Happy Travelers" },
+    { number: "50+", label: "Destinations" },
+    { number: "98%", label: "Satisfaction Rate" },
+    { number: "24/7", label: "Support Available" }
   ];
 
   return (
@@ -86,8 +93,18 @@ const AboutSection = () => {
             </div>
           </div>
 
+          {/* Stats Section */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 md:mb-20">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center p-6 bg-white rounded-xl shadow-lg border border-gray-100">
+                <div className="text-3xl font-bold text-accent mb-2">{stat.number}</div>
+                <div className="text-gray-600 text-sm">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 md:mb-20">
             {features.map((feature, index) => (
               <div key={index} className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
                 <div className="flex justify-center mb-4">
@@ -103,8 +120,35 @@ const AboutSection = () => {
             ))}
           </div>
 
+          {/* Mission & Vision */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 md:mb-20">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <div className="flex items-center mb-4">
+                <FaMapMarkedAlt className="w-8 h-8 text-accent mr-3" />
+                <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                To provide authentic, immersive travel experiences that showcase the true 
+                beauty of Sikkim while supporting local communities and preserving the 
+                region's cultural heritage for future generations.
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <div className="flex items-center mb-4">
+                <FaCamera className="w-8 h-8 text-accent mr-3" />
+                <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
+              </div>
+              <p className="text-gray-600 leading-relaxed">
+                To become the leading platform for authentic Sikkim experiences, 
+                connecting travelers with the heart and soul of this magical region 
+                through personalized, sustainable tourism.
+              </p>
+            </div>
+          </div>
+
           {/* CTA Section */}
-          <div className="text-center mt-16 md:mt-20">
+          <div className="text-center">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                 Ready to Experience Sikkim?
