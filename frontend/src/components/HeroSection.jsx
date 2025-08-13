@@ -1,129 +1,112 @@
-import { useState } from 'react'
-import { FaMagnifyingGlass, FaCalendar, FaUsers, FaLocationDot } from 'react-icons/fa6'
+import { motion } from 'framer-motion';
+
+// --- Animation Variants ---
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 12,
+    },
+  },
+};
 
 const HeroSection = () => {
-  const [searchData, setSearchData] = useState({
-    destination: '',
-    date: '',
-    days: '3'
-  })
-
-  const handleSearch = (e) => {
-    e.preventDefault()
-    // Handle search functionality
-    console.log('Search:', searchData)
-  }
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/90 to-secondary/90">
-      {/* Background Image Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
+    <section className="relative flex items-center justify-center h-screen overflow-hidden mx-2 md:mx-4 lg:mx-6 my-2 md:my-4 lg:my-6">
+      {/* Background Container with Box Effect */}
+      <div className="relative w-full h-full rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-slate-800/20 to-slate-900/20 backdrop-blur-sm border border-white/10">
+        {/* Background Image Layer */}
+        <img 
+          src="/yumthang-valley.jpg" 
+          alt="Sikkim Valley Background"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          onLoad={() => console.log('Image loaded successfully')}
+          onError={(e) => console.error('Image failed to load:', e)}
+        />
+        
+        {/* Enhanced Shadow Effects */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/75 via-slate-900/55 to-slate-900/35 z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,146,60,0.35),transparent_70%)] z-10" />
+        
+        {/* Subtle Inner Glow and Border */}
+        <div className="absolute inset-0 ring-1 ring-white/15 z-10 rounded-3xl" />
+        
+        {/* Floating Elements for Advanced Look */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-full blur-xl z-5 animate-pulse" />
+        <div className="absolute bottom-20 right-16 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 rounded-full blur-xl z-5 animate-pulse delay-1000" />
+        <div className="absolute top-1/2 right-8 w-12 h-12 bg-gradient-to-br from-emerald-400/20 to-green-500/20 rounded-full blur-lg z-5 animate-pulse delay-500" />
+        
+        {/* Content Container - Perfect Vertical Alignment */}
+        <div className="relative z-20 h-full flex items-center px-8 md:px-12 lg:px-16 xl:px-20">
+          {/* Content Stack - Perfect Vertical Line */}
+          <div className="space-y-6 md:space-y-8">
+            {/* Badge - Perfectly Aligned */}
+            <motion.div variants={itemVariants} className="hero-badge w-fit shadow-xl backdrop-blur-md">
+              <span className="hero-badge-dot" />
+              <span className="text-xs sm:text-sm md:text-base font-medium tracking-wide">Explore The Hidden Gem of the Himalayas</span>
+            </motion.div>
 
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
-        }}
-      ></div>
-
-      <div className="relative z-20 container-custom text-center text-white">
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* Main Heading */}
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              Discover
-              <span className="block text-accent">Sikkim</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto">
-              Experience the mystical beauty of the Himalayas, ancient
-              monasteries, and pristine landscapes
-            </p>
-          </div>
-
-          {/* <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-            <form onSubmit={handleSearch} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="relative">
-                  <FaLocationDot className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
-                    type="text"
-                    placeholder="Where do you want to go?"
-                    value={searchData.destination}
-                    onChange={(e) => setSearchData({...searchData, destination: e.target.value})}
-                    className="w-full pl-10 pr-4 py-4 bg-white/90 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50"
-                  />
-                </div>
-
-                <div className="relative">
-                  <FaCalendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
-                    type="date"
-                    value={searchData.date}
-                    onChange={(e) => setSearchData({...searchData, date: e.target.value})}
-                    className="w-full pl-10 pr-4 py-4 bg-white/90 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50"
-                  />
-                </div>
-
-                <div className="relative">
-                  <FaUsers className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <select
-                    value={searchData.days}
-                    onChange={(e) => setSearchData({...searchData, days: e.target.value})}
-                    className="w-full pl-10 pr-4 py-4 bg-white/90 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50"
-                  >
-                    <option value="1">1 Day</option>
-                    <option value="2">2 Days</option>
-                    <option value="3">3 Days</option>
-                    <option value="5">5 Days</option>
-                    <option value="7">1 Week</option>
-                    <option value="10">10 Days</option>
-                    <option value="14">2 Weeks</option>
-                  </select>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="btn-accent text-lg px-12 py-4 w-full md:w-auto"
-              >
-                <FaMagnifyingGlass className="w-6 h-6 mr-2 inline" />
-                Search Adventures
-              </button>
-            </form>
-          </div> */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
-            <a href="/destinations" className="btn-accent text-lg px-8 py-3">
-              Browse Destinations
-            </a>
-            <a
-              href="/itinerary-planner"
-              className="bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 text-lg"
+            {/* Main Title - Perfect Vertical Flow */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-[1.05] drop-shadow-2xl"
             >
-              Plan Your Trip
-            </a>
-          </div>
+              <span className="text-white/90">Plan your</span> <br className="hidden sm:block" />
+              <span className="hero-title-accent">Trip</span>
+            </motion.h1>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-accent">500+</div>
-              <div className="text-gray-200">Happy Travelers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-accent">50+</div>
-              <div className="text-gray-200">Destinations</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-accent">98%</div>
-              <div className="text-gray-200">Satisfaction Rate</div>
-            </div>
+            {/* Subtitle - Perfectly Aligned */}
+            <motion.div variants={itemVariants} className="max-w-2xl lg:max-w-3xl">
+              <p className="hero-subtitle text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                with AI-powered itineraries and local experiences from hidden valleys to vibrant festivals - plan, customize, and book with local experts.
+              </p>
+            </motion.div>
+
+            {/* Button Container - Perfect Vertical Alignment */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-start items-stretch sm:items-start"
+            >
+              {/* Primary Button */}
+              <motion.a
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                href="/destinations"
+                className="btn-glow text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 md:py-4 w-full sm:w-auto text-center shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                Browse Destinations
+              </motion.a>
+              
+              {/* Secondary Button */}
+              <motion.a
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                href="/itinerary-planner"
+                className="btn-glass-light text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 md:py-4 w-full sm:w-auto text-center shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                Plan Your Trip
+              </motion.a>
+            </motion.div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default HeroSection 
+export default HeroSection;
