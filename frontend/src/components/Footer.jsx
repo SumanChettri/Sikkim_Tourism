@@ -109,15 +109,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <FaLocationDot className="w-5 h-5 text-primary" />
-                <span className="text-gray-300">MG Marg, Gangtok, Sikkim</span>
+                <span className="text-gray-300">Sist Chisopani, Namchi Sikkim</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FaPhone className="w-5 h-5 text-primary" />
-                <span className="text-gray-300">+91 98765 43210</span>
+                <span className="text-gray-300">+91 9641025910</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FaEnvelope className="w-5 h-5 text-primary" />
-                <span className="text-gray-300">info@sikkimexplorer.com</span>
+                <span className="text-gray-300">sumantewari758@gmail.com</span>
               </div>
             </div>
           </div>

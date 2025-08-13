@@ -52,6 +52,26 @@
   .btn-accent {
     @apply bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 border-0;
   }
+
+  /* New enhanced button styles */
+  .btn-glow {
+    @apply relative font-semibold py-3 px-8 rounded-2xl text-white transition-all duration-300 bg-gradient-to-r from-emerald-500 via-blue-500 to-indigo-500 shadow-[0_8px_24px_-6px_rgba(59,130,246,0.5)] hover:shadow-[0_12px_32px_-4px_rgba(59,130,246,0.7)] hover:scale-[1.04] hover:-translate-y-1;
+  }
+  .btn-glow::after {
+    content: '';
+    @apply absolute inset-[2px] rounded-2xl bg-gradient-to-r from-emerald-600/20 via-blue-600/20 to-indigo-600/20 pointer-events-none;
+  }
+  .btn-glass-light {
+    @apply backdrop-blur-md bg-white/20 hover:bg-white/30 text-white font-medium py-3 px-8 rounded-2xl border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1;
+  }
+  
+  .btn-outline-light {
+    @apply border-2 border-white/70 text-white hover:bg-white/15 font-semibold py-3 px-8 rounded-2xl transition-all duration-300 shadow hover:shadow-lg hover:scale-[1.03];
+  }
+  
+  .btn-underline-link {
+    @apply relative font-semibold text-white/90 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-gradient-to-r from-amber-400 to-orange-500 hover:after:w-full after:transition-all after:duration-300;
+  }
   
   .btn-outline {
     @apply bg-transparent border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105;
@@ -75,6 +95,19 @@
   
   .card-dark {
     @apply bg-gradient-to-br from-slate-800/90 to-slate-900/90 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-700/50 backdrop-blur-md;
+  }
+
+  /* Glass stat card for hero */
+  .stat-glass {
+    @apply relative overflow-hidden rounded-2xl px-6 py-6 bg-white/10 backdrop-blur-xl border border-white/25 shadow-[0_4px_24px_-2px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_28px_-2px_rgba(255,255,255,0.25)] transition-all duration-500;
+  }
+  .stat-glass::before {
+    content: '';
+    @apply absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-amber-400/40 via-white/20 to-transparent rounded-full blur-xl opacity-60;
+  }
+  .stat-glass::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-white/40 via-white/10 to-transparent;
   }
   
   .section-padding {
@@ -113,4 +146,592 @@
   .glow-accent {
     box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
   }
+
+  /* Enhanced hero section styles */
+  .hero-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs md:text-sm font-medium tracking-wide uppercase shadow-xl hover:shadow-2xl transition-all duration-300;
+  }
+  .hero-badge-dot {
+    @apply w-2 h-2 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg;
+  }
+  
+  .hero-badge:hover {
+    @apply bg-white/25 border-white/40 transform scale-105;
+  }
+  
+  .text-gradient-accent {
+    background: linear-gradient(90deg,#fcd34d,#fb923c,#fbbf24,#fde68a);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .text-glow {
+    text-shadow: 0 4px 24px rgba(251,146,60,0.5),0 2px 8px rgba(0,0,0,0.6);
+  }
+  
+  .hero-subtitle {
+    @apply text-sm md:text-lg font-medium text-white/95 leading-relaxed max-w-2xl mx-auto drop-shadow-lg;
+  }
+  
+  /* Enhanced navbar styles */
+  .navbar-scrolled {
+    @apply bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl;
+  }
+  
+  .navbar-default {
+    @apply bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg;
+  }
+  
+  /* Advanced navbar animations */
+  .navbar-logo-hover {
+    @apply transform transition-all duration-500 hover:scale-110 hover:rotate-3 hover:shadow-2xl;
+  }
+  
+  .navbar-link-hover {
+    @apply transform transition-all duration-500 hover:scale-105 hover:shadow-lg;
+  }
+  
+  .navbar-link-active {
+    @apply text-white bg-gradient-to-r from-blue-600 to-emerald-600 shadow-lg scale-105;
+  }
+  
+  .navbar-link-default {
+    @apply text-gray-700 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:shadow-lg hover:scale-105;
+  }
+  
+  /* Enhanced tooltips */
+  .navbar-tooltip {
+    @apply absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-2xl z-50 whitespace-nowrap;
+  }
+  
+  .navbar-tooltip-arrow {
+    @apply absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1 w-2 h-2 bg-gray-900 rotate-45;
+  }
+  
+  /* Floating particles */
+  .floating-particle {
+    @apply absolute rounded-full animate-ping opacity-75;
+  }
+  
+  .floating-particle-pulse {
+    @apply absolute rounded-full animate-pulse;
+  }
+  
+  /* Enhanced search bar */
+  .search-input-enhanced {
+    @apply w-full px-6 py-4 pl-16 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg;
+  }
+  
+  .search-button-enhanced {
+    @apply absolute right-3 top-1/2 transform -translate-y-1/2 px-6 py-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-xl hover:from-blue-700 hover:to-emerald-700 transition-all duration-500 text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-105;
+  }
+  
+  /* Enhanced user menu */
+  .user-menu-enhanced {
+    @apply absolute right-0 mt-3 w-64 bg-white dark:bg-gray-800 rounded-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border border-gray-200 dark:border-gray-700 py-3 z-50 backdrop-blur-xl;
+  }
+  
+  .user-menu-item-enhanced {
+    @apply flex items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-emerald-50 dark:hover:from-blue-900/20 dark:hover:to-emerald-900/20 transition-all duration-300 rounded-lg mx-2;
+  }
+  
+  /* Notification badge enhanced */
+  .notification-badge-enhanced {
+    @apply absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full flex items-center justify-center animate-bounce shadow-lg;
+  }
+  
+  /* Mobile navigation enhanced */
+  .mobile-nav-link {
+    @apply flex items-center font-semibold px-5 py-4 rounded-2xl transition-all duration-500;
+  }
+  
+  .mobile-nav-link-active {
+    @apply text-white bg-gradient-to-r from-blue-600 to-emerald-600 shadow-lg scale-105;
+  }
+  
+  .mobile-nav-link-default {
+    @apply text-gray-700 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:shadow-lg hover:scale-105;
+  }
+  
+  /* Dark mode support */
+  .dark {
+    @apply bg-gray-900 text-white;
+  }
+  
+  .dark .bg-white {
+    @apply bg-gray-800;
+  }
+  
+  .dark .text-gray-900 {
+    @apply text-white;
+  }
+  
+  .dark .border-gray-200 {
+    @apply border-gray-700;
+  }
+  
+  /* Enhanced button shadows and effects - Mobile First */
+  .btn-glow {
+    @apply relative font-semibold py-3 px-6 sm:px-8 rounded-xl sm:rounded-2xl text-white transition-all duration-300 bg-gradient-to-r from-emerald-500 via-blue-500 to-indigo-500 shadow-lg hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-transparent;
+  }
+  
+  .btn-glow::after {
+    content: '';
+    @apply absolute inset-[2px] rounded-2xl bg-gradient-to-r from-emerald-600/20 via-blue-600/20 to-indigo-600/20 pointer-events-none;
+  }
+  
+  .btn-glass-light {
+    @apply backdrop-blur-md bg-white/25 hover:bg-white/35 text-white font-medium py-3 px-6 sm:px-8 rounded-xl sm:rounded-2xl border border-white/35 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent;
+  }
+  
+  /* Enhanced section shadows */
+  .section-shadow {
+    @apply shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-500;
+  }
+  
+  /* Advanced floating elements animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(120deg); }
+    66% { transform: translateY(10px) rotate(240deg); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Enhanced backdrop blur effects */
+  .backdrop-blur-advanced {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+  
+  /* Hero decorative gradient orbs */
+  .orb {
+    @apply absolute rounded-full mix-blend-screen opacity-30 blur-2xl animate-pulse;
+  }
+  .orb--1 { @apply w-72 h-72 top-[-4rem] left-[-4rem] bg-emerald-400/40; }
+  .orb--2 { @apply w-80 h-80 bottom-[-6rem] right-[-4rem] bg-indigo-500/30; }
+  .orb--3 { @apply w-56 h-56 bottom-10 left-[10%] bg-amber-400/30; }
+
+  /* Improved responsive utilities */
+  .mobile-first {
+    @apply block sm:hidden;
+  }
+  
+  .tablet-up {
+    @apply hidden sm:block;
+  }
+  
+  .desktop-up {
+    @apply hidden lg:block;
+  }
+  
+  /* Improved hero section responsiveness */
+  .hero-content {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12;
+  }
+  
+  .hero-title-responsive {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl;
+  }
+  
+  .hero-subtitle-responsive {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+  }
+  
+  /* Mobile-optimized spacing */
+  .section-mobile {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
+  }
+  
+  .container-mobile {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Mobile-first button improvements */
+  .btn-mobile-full {
+    @apply w-full sm:w-auto;
+  }
+  
+  .btn-mobile-padding {
+    @apply px-4 sm:px-6 md:px-8 py-3 md:py-4;
+  }
+  
+  .btn-mobile-text {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  /* Enhanced navbar utilities */
+  .nav-link-active {
+    @apply text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 shadow-sm;
+  }
+  
+  .nav-link-default {
+    @apply text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/10;
+  }
+  
+  .nav-link-mobile {
+    @apply flex items-center font-medium px-4 py-3 rounded-xl transition-all duration-300;
+  }
+  
+  /* Search bar enhancements */
+  .search-input {
+    @apply w-full px-4 py-3 pl-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400;
+  }
+  
+  .search-button {
+    @apply absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm font-medium;
+  }
+  
+  /* User menu enhancements */
+  .user-menu {
+    @apply absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 py-2 z-50;
+  }
+  
+  .user-menu-item {
+    @apply flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors duration-200;
+  }
+  
+  /* Notification badge */
+  .notification-badge {
+    @apply absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse;
+  }
+  
+  /* Improved mobile grid layouts */
+  .grid-mobile {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .gap-mobile {
+    @apply gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  /* Mobile-optimized text sizes */
+  .text-mobile-title {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  .text-mobile-subtitle {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  .text-mobile-body {
+    @apply text-base sm:text-lg md:text-xl;
+  }
 }
+
+@layer utilities {
+  @keyframes fade-up {
+    0% { opacity: 0; transform: translateY(24px) scale(.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .animate-fade-up { animation: fade-up .9s cubic-bezier(.16,.8,.24,1) forwards; }
+  .animate-delay-150 { animation-delay: .15s; }
+  .animate-delay-300 { animation-delay: .3s; }
+  .animate-delay-450 { animation-delay: .45s; }
+  .animate-delay-600 { animation-delay: .6s; }
+}
+
+  /* Formal navbar styles */
+  .navbar-formal {
+    @apply bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-200;
+  }
+  
+  .navbar-formal-default {
+    @apply bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100;
+  }
+  
+  /* Formal navigation link styles */
+  .nav-link-formal {
+    @apply relative font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300 py-2;
+  }
+  
+  .nav-link-formal-active {
+    @apply text-blue-600;
+  }
+  
+  /* Elegant hover line effect */
+  .hover-line-effect {
+    @apply absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 transform scale-x-0 transition-transform duration-300 origin-left;
+  }
+  
+  .hover-line-active {
+    @apply absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600;
+  }
+  
+  /* Formal button styles */
+  .btn-formal {
+    @apply p-2 text-gray-600 hover:text-blue-600 transition-colors duration-300;
+  }
+  
+  .btn-formal-amber {
+    @apply p-2 text-gray-600 hover:text-amber-600 transition-colors duration-300;
+  }
+  
+  /* Formal search input */
+  .search-input-formal {
+    @apply w-full px-4 py-3 pl-12 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-gray-900 placeholder-gray-500;
+  }
+  
+  .search-button-formal {
+    @apply absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300 text-sm font-medium;
+  }
+  
+  /* Formal user menu */
+  .user-menu-formal {
+    @apply absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50;
+  }
+  
+  .user-menu-item-formal {
+    @apply flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200;
+  }
+  
+  /* Mobile navigation formal */
+  .mobile-nav-formal {
+    @apply font-medium px-4 py-3 rounded-lg transition-all duration-300;
+  }
+  
+  .mobile-nav-formal-active {
+    @apply text-blue-600 bg-blue-50 border-l-4 border-blue-500;
+  }
+  
+  .mobile-nav-formal-default {
+    @apply text-gray-700 hover:text-blue-600 hover:bg-gray-50;
+  }
+
+  /* AIventurer Logo Styles */
+  
+  /* Style 1: Modern Gradient */
+  .logo-modern {
+    @apply text-2xl md:text-3xl font-black bg-gradient-to-r from-blue-600 via-emerald-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  /* Style 2: Tech-Focused */
+  .logo-tech {
+    @apply text-2xl md:text-3xl font-black bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-700 bg-clip-text text-transparent;
+  }
+  
+  /* Style 3: Adventure-Focused */
+  .logo-adventure {
+    @apply text-2xl md:text-3xl font-black bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent;
+  }
+  
+  /* Style 4: Premium Luxury */
+  .logo-premium {
+    @apply text-2xl md:text-3xl font-black bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 bg-clip-text text-transparent;
+  }
+  
+  /* Style 5: Mountain/Nature */
+  .logo-nature {
+    @apply text-2xl md:text-3xl font-black bg-gradient-to-r from-slate-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  }
+  
+  /* Style 6: Minimalist */
+  .logo-minimal {
+    @apply text-2xl md:text-3xl font-bold text-gray-900;
+  }
+  
+  /* Style 7: Bold Impact */
+  .logo-bold {
+    @apply text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  /* Style 8: Corporate Professional */
+  .logo-corporate {
+    @apply text-2xl md:text-3xl font-bold text-blue-700;
+  }
+  
+  /* Logo Icon Variations */
+  .logo-icon-modern {
+    @apply w-12 h-12 bg-gradient-to-r from-blue-600 via-emerald-500 to-purple-600 rounded-2xl;
+  }
+  
+  .logo-icon-tech {
+    @apply w-12 h-12 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-700 rounded-2xl;
+  }
+  
+  .logo-icon-adventure {
+    @apply w-12 h-12 bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 rounded-2xl;
+  }
+  
+  .logo-icon-premium {
+    @apply w-12 h-12 bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 rounded-2xl;
+  }
+  
+  .logo-icon-nature {
+    @apply w-12 h-12 bg-gradient-to-r from-slate-600 via-blue-600 to-cyan-600 rounded-2xl;
+  }
+  
+  .logo-icon-minimal {
+    @apply w-12 h-12 bg-blue-600 rounded-2xl;
+  }
+  
+  .logo-icon-bold {
+    @apply w-12 h-12 bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 rounded-2xl;
+  }
+  
+  .logo-icon-corporate {
+    @apply w-12 h-12 bg-blue-700 rounded-2xl;
+  }
+  
+  /* Logo Hover Effects */
+  .logo-hover-modern:hover {
+    @apply from-blue-700 via-emerald-700 to-purple-700;
+  }
+  
+  .logo-hover-tech:hover {
+    @apply from-cyan-600 via-blue-700 to-indigo-800;
+  }
+  
+  .logo-hover-adventure:hover {
+    @apply from-emerald-700 via-green-700 to-teal-700;
+  }
+  
+  .logo-hover-premium:hover {
+    @apply from-amber-600 via-orange-700 to-red-700;
+  }
+  
+  .logo-hover-nature:hover {
+    @apply from-slate-700 via-blue-700 to-cyan-700;
+  }
+  
+  .logo-hover-bold:hover {
+    @apply from-red-700 via-pink-700 to-purple-700;
+  }
+  
+  .logo-hover-corporate:hover {
+    @apply bg-blue-800;
+  }
+
+  /* Creative AIventurer Logo Styles */
+  
+  /* Main Logo Container */
+  .logo-creative {
+    @apply flex items-center space-x-4;
+  }
+  
+  /* Creative Logo Icon */
+  .logo-icon-creative {
+    @apply w-14 h-14 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 rounded-3xl flex items-center justify-center shadow-2xl transition-all duration-500;
+  }
+  
+  .logo-icon-inner {
+    @apply w-10 h-10 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm;
+  }
+  
+  /* Floating Elements */
+  .floating-dot-yellow {
+    @apply absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rounded-full animate-bounce;
+  }
+  
+  .floating-dot-cyan {
+    @apply absolute -bottom-2 -left-2 w-3 h-3 bg-cyan-400 rounded-full animate-pulse;
+  }
+  
+  /* Text Logo Styles */
+  .logo-text-ai {
+    @apply text-3xl md:text-4xl font-black bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent transition-all duration-500;
+  }
+  
+  .logo-text-venturer {
+    @apply text-3xl md:text-3xl font-black text-gray-800 transition-colors duration-500;
+  }
+  
+  /* Tagline Styles */
+  .logo-tagline {
+    @apply text-sm font-bold text-emerald-600 transition-colors duration-500;
+  }
+  
+  .logo-dot-emerald {
+    @apply w-2 h-2 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full animate-pulse;
+  }
+  
+  .logo-dot-blue {
+    @apply w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse delay-1000;
+  }
+  
+  /* Alternative Logo Styles */
+  
+  /* Style 1: Mountain Adventure */
+  .logo-mountain {
+    @apply w-14 h-14 bg-gradient-to-br from-slate-700 via-blue-600 to-cyan-500 rounded-3xl;
+  }
+  
+  .logo-text-mountain {
+    @apply text-3xl md:text-4xl font-black bg-gradient-to-r from-slate-700 via-blue-600 to-cyan-500 bg-clip-text text-transparent;
+  }
+  
+  /* Style 2: Tech Future */
+  .logo-tech-future {
+    @apply w-14 h-14 bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-700 rounded-3xl;
+  }
+  
+  .logo-text-tech {
+    @apply text-3xl md:text-4xl font-black bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-700 bg-clip-text text-transparent;
+  }
+  
+  /* Style 3: Sunset Adventure */
+  .logo-sunset {
+    @apply w-14 h-14 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 rounded-3xl;
+  }
+  
+  .logo-text-sunset {
+    @apply text-3xl md:text-4xl font-black bg-gradient-to-r from-orange-500 via-red-500 to-pink-600 bg-clip-text text-transparent;
+  }
+  
+  /* Style 4: Ocean Deep */
+  .logo-ocean {
+    @apply w-14 h-14 bg-gradient-to-br from-blue-600 via-teal-500 to-emerald-600 rounded-3xl;
+  }
+  
+  .logo-text-ocean {
+    @apply text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-600 via-teal-500 to-emerald-600 bg-clip-text text-transparent;
+  }
+  
+  /* Style 5: Cosmic Adventure */
+  .logo-cosmic {
+    @apply w-14 h-14 bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 rounded-3xl;
+  }
+  
+  .logo-text-cosmic {
+    @apply text-3xl md:text-4xl font-black bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent;
+  }
+
+  /* Enhanced hero title styles */
+  .hero-title-main {
+    @apply text-white/90 font-black tracking-tight leading-[1.05] drop-shadow-2xl;
+  }
+  
+  .hero-title-main-hover {
+    @apply text-white font-black tracking-tight leading-[1.05] drop-shadow-2xl;
+  }
+  
+  .hero-title-accent {
+    @apply font-black tracking-tight leading-[1.05] drop-shadow-2xl;
+    background: linear-gradient(90deg,#fcd34d,#fb923c,#fbbf24,#fde68a);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 4px 24px rgba(251,146,60,0.5),0 2px 8px rgba(0,0,0,0.6);
+  }
+  
+  /* Alternative color options for hero title */
+  .hero-title-white {
+    @apply text-white font-black tracking-tight leading-[1.05] drop-shadow-2xl;
+  }
+  
+  .hero-title-light {
+    @apply text-white/95 font-black tracking-tight leading-[1.05] drop-shadow-2xl;
+  }
+  
+  .hero-title-blue {
+    @apply text-blue-100 font-black tracking-tight leading-[1.05] drop-shadow-2xl;
+  }
+  
+  .hero-title-emerald {
+    @apply text-emerald-100 font-black tracking-tight leading-[1.05] drop-shadow-2xl;
+  }
+  
+  .hero-title-cyan {
+    @apply text-cyan-100 font-black tracking-tight leading-[1.05] drop-shadow-2xl;
+  }
