@@ -63,7 +63,8 @@ const Home = () => {
 
       <DestinationCard />
 
-      
+      </h2>
+            
       {/* <section className="section-padding">
         <div className="container-custom">
           <div className="texddt-center mb-12">
