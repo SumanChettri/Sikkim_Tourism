@@ -60,15 +60,6 @@ const Home = () => {
         <div className="container-custom">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
-
-      <DestinationCard />
-
-      
-      {/* <section className="section-padding">
-        <div className="container-custom">
-          <div className="texddt-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-
               Featured Destinations
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
@@ -88,33 +79,13 @@ const Home = () => {
             </a>
           </div>
         </div>
-      </section> */}
-
-      {/* <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Plan Your Perfect Trip
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Search for destinations, plan your itinerary, and book your
-              adventure in Sikkim
-            </p>
-          </div>
-        </div>
-
-      </section> */}
-
-
-      {/* Search Section */}
+      </section>
 
       {/* Why Choose Us */}
-          <WhyChooseUs/>
+      <WhyChooseUs/>
 
       {/* Testimonials */}
       <section className="py-16 md:py-20 lg:py-24 px-4 bg-gray-50">
-
-      <section className="section-padding bg-gray-50">
 
         <div className="container-custom">
           <div className="text-center mb-12 md:mb-16">
