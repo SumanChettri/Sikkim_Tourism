@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaMountain, FaHeart, FaUsers, FaAward, FaMapMarkedAlt, FaCamera } from 'react-icons/fa6';
+import { FaMountain, FaHeart, FaUsers, FaAward, FaCamera } from 'react-icons/fa6';
+import { FaMapMarkedAlt } from 'react-icons/fa';
 
 const AboutSection = () => {
   const features = [
