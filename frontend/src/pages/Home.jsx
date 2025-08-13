@@ -1,11 +1,11 @@
 import { useState } from "react";
 import HeroSection from "../components/HeroSection";
 import SearchBar from "../components/SearchBar";
-import DestinationCard from "../components/DestinationCard";
+// import DestinationCard from "../components/DestinationCard";
+import DestinationCard from "../components/Destinations";
 import { destinations } from "../data/destinations";
 import { FaStar, FaQuoteLeft } from "react-icons/fa6";
 import WhyChooseUs from "../components/WhyCooseUs";
-
 const Home = () => {
   const [searchData, setSearchData] = useState(null);
 
@@ -60,6 +60,15 @@ const Home = () => {
         <div className="container-custom">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+
+      <DestinationCard />
+
+      
+      {/* <section className="section-padding">
+        <div className="container-custom">
+          <div className="texddt-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+
               Featured Destinations
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
@@ -79,7 +88,7 @@ const Home = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <section className="section-padding bg-gray-50">
         <div className="container-custom">
@@ -96,6 +105,7 @@ const Home = () => {
 
       </section> */}
 
+
       {/* Search Section */}
 
       {/* Why Choose Us */}
@@ -103,6 +113,9 @@ const Home = () => {
 
       {/* Testimonials */}
       <section className="py-16 md:py-20 lg:py-24 px-4 bg-gray-50">
+
+      <section className="section-padding bg-gray-50">
+
         <div className="container-custom">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
@@ -149,6 +162,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
+
       <section className="py-16 md:py-20 lg:py-24 px-4 bg-gradient-to-r from-secondary to-primary text-white">
         <div className="container-custom text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
@@ -171,6 +185,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };
