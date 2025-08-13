@@ -1,7 +1,8 @@
 import { useState } from "react";
 import HeroSection from "../components/HeroSection";
 import SearchBar from "../components/SearchBar";
-import DestinationCard from "../components/DestinationCard";
+// import DestinationCard from "../components/DestinationCard";
+import DestinationCard from "../components/Destinations";
 import { destinations } from "../data/destinations";
 import { FaStar, FaQuoteLeft } from "react-icons/fa6";
 import WhyChooseUs from "../components/WhyCooseUs";
@@ -54,10 +55,12 @@ const Home = () => {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Featured Destinations */}
-      <section className="section-padding">
+      <DestinationCard />
+
+      
+      {/* <section className="section-padding">
         <div className="container-custom">
-          <div className="text-center mb-12">
+          <div className="texddt-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Featured Destinations
             </h2>
@@ -78,7 +81,7 @@ const Home = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <section className="section-padding bg-gray-50">
         <div className="container-custom">
@@ -95,13 +98,6 @@ const Home = () => {
 
       </section> */}
 
-      {/* Search Section */}
-
-      {/* Why Choose Us */}
-
-      {/* //////////////////////////////// */}
-      {/* /////////////////////////////// */}
-      {/* Testimonials */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
@@ -149,7 +145,6 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-     
     </div>
   );
 };
