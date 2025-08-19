@@ -318,7 +318,7 @@ export default function About() {
               </div>
             </div>
           </motion.div>
-        </div>
+    </div>
       </section>
     </motion.div>
   );
