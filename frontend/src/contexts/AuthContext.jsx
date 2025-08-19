@@ -122,14 +122,9 @@ export const AuthProvider = ({ children }) => {
 
   // Logout function
   const logout = async () => {
-    console.log('AuthContext: Logout started');
-    console.log('AuthContext: Current user before logout:', user);
-    console.log('AuthContext: Current token before logout:', localStorage.getItem('authToken'));
-    
     try {
       const token = localStorage.getItem('authToken');
       if (token) {
-        console.log('AuthContext: Calling logout API');
         // Call logout endpoint
         const response = await fetch(`${API_BASE_URL}/auth/logout`, {
           method: 'POST',
@@ -138,15 +133,12 @@ export const AuthProvider = ({ children }) => {
             'Content-Type': 'application/json'
           }
         });
-        console.log('AuthContext: Logout API response status:', response.status);
       }
     } catch (error) {
       console.error('Logout error:', error);
     } finally {
-      console.log('AuthContext: Clearing local data');
       // Clear local data regardless of API call success
       localStorage.removeItem('authToken');
-      console.log('AuthContext: Token removed from localStorage');
       
       // Force state update with a small delay to ensure proper re-render
       setUser(null);
@@ -156,11 +148,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        console.log('AuthContext: Loading state reset, logout complete');
       }, 100);
-      
-      console.log('AuthContext: User state set to null');
-      console.log('AuthContext: Error state cleared');
     }
   };
 

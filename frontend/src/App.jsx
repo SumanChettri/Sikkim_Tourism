@@ -12,6 +12,7 @@ import ItineraryPlanner from './pages/ItineraryPlanner';
 import TaxiBooking from './pages/TaxiBooking';
 import Gallery from './pages/Gallery';
 
+
 function App() {
   return (
     <AuthProvider>
