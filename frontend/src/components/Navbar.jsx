@@ -27,15 +27,10 @@ const Navbar = () => {
   ];
 
   const handleLogout = async () => {
-    console.log('Logout button clicked');
-    console.log('Current user:', user);
-    console.log('Current isAuthenticated:', isAuthenticated);
-    
     try {
       await logout(); // Wait for logout to complete
       setIsUserMenuOpen(false);
       navigate("/");
-      console.log('After logout - user should be null');
     } catch (error) {
       console.error('Logout error:', error);
     }
@@ -60,17 +55,9 @@ const Navbar = () => {
     };
   }, []);
 
-  // Debug authentication state changes
-  useEffect(() => {
-    console.log('Navbar: Authentication state changed');
-    console.log('Navbar: isAuthenticated:', isAuthenticated);
-    console.log('Navbar: user:', user);
-    console.log('Navbar: localStorage token:', localStorage.getItem('authToken'));
-  }, [isAuthenticated, user]);
-
   return (
     <>
-      <nav className="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-white shadow-lg fixed top-0 left-0 right-0 z-50" key={`navbar-${isAuthenticated}-${user?.id || 'guest'}`}>
         <div className="container-custom">
           <div className="flex justify-between items-center py-3 md:py-4 mr-16 lg:mr-20 xl:mr-24">
             {/* Professional AIventurer Logo - Better colors and adjusted margins */}
@@ -144,50 +131,9 @@ const Navbar = () => {
                 <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
 
-              {/* Debug: Show current authentication state */}
-              <div className="text-xs text-red-500 bg-red-100 px-2 py-1 rounded">
-                Auth: {isAuthenticated ? 'YES' : 'NO'} | User: {user ? 'EXISTS' : 'NULL'}
-              </div>
-
-              {/* Enhanced Notification Bell */}
-              <div className="relative group cursor-pointer">
-                <div className="relative">
-                  <FaBell className="w-6 h-6 text-gray-600 hover:text-blue-600 transition-colors duration-200" />
-                  {notifications > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold animate-pulse">
-                      {notifications > 9 ? '9+' : notifications}
-                    </span>
-                  )}
-                </div>
-                {/* Notification Tooltip */}
-                <div className="absolute right-0 top-full mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="font-semibold text-gray-800">Notifications</h3>
-                      <button className="text-sm text-blue-600 hover:text-blue-700">Mark all read</button>
-                    </div>
-                    <div className="space-y-2 max-h-64 overflow-y-auto">
-                      {Array.from({ length: Math.min(notifications, 5) }, (_, i) => (
-                        <div key={i} className="flex items-start space-x-3 p-2 rounded-lg hover:bg-gray-50">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <div className="flex-1">
-                            <p className="text-sm text-gray-800">New destination added to your favorites</p>
-                            <p className="text-xs text-gray-500 mt-1">2 minutes ago</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-3 pt-3 border-t border-gray-100">
-                      <Link to="/notifications" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
-                        View all notifications
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Professional Login/Signup Buttons - Smaller and more professional */}
+              {/* Conditional Rendering based on Authentication */}
               {!isAuthenticated ? (
+                // Show Login/Signup buttons when NOT authenticated
                 <div className="flex items-center space-x-4">
                   <Link
                     to="/login"
@@ -203,121 +149,182 @@ const Navbar = () => {
                   </Link>
                 </div>
               ) : (
-                <div className="relative" ref={userMenuRef}>
-                  <button
-                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
-                  >
-                    {/* Enhanced User Icon */}
+                // Show Notification and User Profile when authenticated
+                <>
+                  {/* Enhanced Notification Bell */}
+                  <div className="relative group cursor-pointer">
                     <div className="relative">
-                      {user?.profile_picture ? (
-                        <img
-                          src={`http://localhost:5000${user.profile_picture}`}
-                          alt="Profile"
-                          className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-lg group-hover:border-blue-200 transition-all duration-200"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.nextSibling.style.display = 'flex';
-                          }}
-                        />
-                      ) : null}
-                      <div 
-                        className={`w-10 h-10 rounded-full bg-gradient-to-br from-slate-800 via-blue-800 to-indigo-800 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-200 ${user?.profile_picture ? 'hidden' : 'flex'}`}
-                      >
-                        <span className="text-white font-bold text-lg">
-                          {user?.first_name ? user.first_name.charAt(0).toUpperCase() : 'U'}
+                      <FaBell className="w-6 h-6 text-gray-600 hover:text-blue-600 transition-colors duration-200" />
+                      {notifications > 0 && (
+                        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold animate-pulse">
+                          {notifications > 9 ? '9+' : notifications}
                         </span>
+                      )}
+                    </div>
+                    {/* Notification Tooltip */}
+                    <div className="absolute right-0 top-full mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+                      <div className="p-4">
+                        <div className="flex items-center justify-between mb-3">
+                          <h3 className="font-semibold text-gray-800">Notifications</h3>
+                          <button className="text-sm text-blue-600 hover:text-blue-700">Mark all read</button>
+                        </div>
+                        <div className="space-y-2 max-h-64 overflow-y-auto">
+                          {Array.from({ length: Math.min(notifications, 5) }, (_, i) => (
+                            <div key={i} className="flex items-start space-x-3 p-2 rounded-lg hover:bg-gray-50">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                              <div className="flex-1">
+                                <p className="text-sm text-gray-800">New destination added to your favorites</p>
+                                <p className="text-xs text-gray-500 mt-1">2 minutes ago</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-3 pt-3 border-t border-gray-100">
+                          <Link to="/notifications" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                            View all notifications
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                    
-                    <div className="text-left">
-                      <p className="text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {user?.first_name} {user?.last_name}
-                      </p>
-                      <p className="text-xs text-gray-500">Welcome back!</p>
-            </div>
+                  </div>
 
-                    <FaChevronDown className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${isUserMenuOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-                  {/* Enhanced User Dropdown Menu */}
-                  {isUserMenuOpen && (
-                    <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
-                      <div className="px-4 py-3 border-b border-gray-100">
-                        <p className="text-sm font-medium text-gray-800">
+                  {/* Enhanced User Profile */}
+                  <div className="relative" ref={userMenuRef}>
+                    <button
+                      onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                      className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200 group"
+                    >
+                      {/* Enhanced User Icon */}
+                      <div className="relative">
+                        {user?.profile_picture ? (
+                          <img
+                            src={`http://localhost:5000${user.profile_picture}`}
+                            alt="Profile"
+                            className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-lg group-hover:border-blue-200 transition-all duration-200"
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'flex';
+                            }}
+                          />
+                        ) : null}
+                        <div 
+                          className={`w-10 h-10 rounded-full bg-gradient-to-br from-slate-800 via-blue-800 to-indigo-800 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-200 ${user?.profile_picture ? 'hidden' : 'flex'}`}
+                        >
+                          <span className="text-white font-bold text-lg">
+                            {user?.first_name ? user.first_name.charAt(0).toUpperCase() : 'U'}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="text-left">
+                        <p className="text-sm font-medium text-gray-800 whitespace-nowrap">
                           {user?.first_name} {user?.last_name}
                         </p>
-                        <p className="text-xs text-gray-500">{user?.email}</p>
+                        <p className="text-xs text-gray-500">Welcome back!</p>
                       </div>
-                      
-                      <div className="py-2">
-                        <Link
-                          to="/profile"
-                          className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200"
-                        >
-                          <FaUser className="w-4 h-4" />
-                          <span>My Profile</span>
-                        </Link>
-                        <Link
-                          to="/settings"
-                          className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200"
-                        >
-                          <FaCog className="w-4 h-4" />
-                          <span>Settings</span>
-                        </Link>
+
+                      <FaChevronDown className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${isUserMenuOpen ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    {/* Enhanced User Dropdown Menu */}
+                    {isUserMenuOpen && (
+                      <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
+                        <div className="px-4 py-3 border-b border-gray-100">
+                          <p className="text-sm font-medium text-gray-800">
+                            {user?.first_name} {user?.last_name}
+                          </p>
+                          <p className="text-xs text-gray-500">{user?.email}</p>
+                        </div>
+                        
+                        <div className="py-2">
+                          <Link
+                            to="/profile"
+                            className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200"
+                          >
+                            <FaUser className="w-4 h-4" />
+                            <span>My Profile</span>
+                          </Link>
+                          <Link
+                            to="/settings"
+                            className="flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-200"
+                          >
+                            <FaCog className="w-4 h-4" />
+                            <span>Settings</span>
+                          </Link>
+                        </div>
+                        
+                        <div className="border-t border-gray-100 pt-2">
+                          <button
+                            onClick={handleLogout}
+                            className="flex items-center space-x-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 w-full transition-colors duration-200"
+                          >
+                            <FaSignOutAlt className="w-4 h-4" />
+                            <span>Sign Out</span>
+                          </button>
+                        </div>
                       </div>
-                      
-                      <div className="border-t border-gray-100 pt-2">
-                        <button
-                          onClick={handleLogout}
-                          className="flex items-center space-x-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 w-full transition-colors duration-200"
-                        >
-                          <FaSignOutAlt className="w-4 h-4" />
-                          <span>Sign Out</span>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
+                </>
               )}
             </div>
 
             {/* Mobile Menu Button and User Icon - Fixed functionality */}
             <div className="lg:hidden flex items-center space-x-4">
               {/* Enhanced Notification Bell - Mobile with working functionality */}
-              <div className="relative group cursor-pointer">
-                <FaBell className="w-5 h-5 text-gray-600" />
-                {notifications > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center font-semibold">
-                    {notifications > 9 ? '9+' : notifications}
-                  </span>
-                )}
-                {/* Mobile Notification Tooltip */}
-                <div className="absolute right-0 top-full mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
-                  <div className="p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="font-semibold text-gray-800">Notifications</h3>
-                      <button className="text-sm text-blue-600 hover:text-blue-700">Mark all read</button>
-                    </div>
-                    <div className="space-y-2 max-h-48 overflow-y-auto">
-                      {Array.from({ length: Math.min(notifications, 3) }, (_, i) => (
-                        <div key={i} className="flex items-start space-x-3 p-2 rounded-lg hover:bg-gray-50">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <div className="flex-1">
-                            <p className="text-sm text-gray-800">New destination added to your favorites</p>
-                            <p className="text-xs text-gray-500 mt-1">2 minutes ago</p>
+              {isAuthenticated && (
+                <div className="relative group cursor-pointer">
+                  <FaBell className="w-5 h-5 text-gray-600" />
+                  {notifications > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center font-semibold">
+                      {notifications > 9 ? '9+' : notifications}
+                    </span>
+                  )}
+                  {/* Mobile Notification Tooltip */}
+                  <div className="absolute right-0 top-full mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="p-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="font-semibold text-gray-800">Notifications</h3>
+                        <button className="text-sm text-blue-600 hover:text-blue-700">Mark all read</button>
+                      </div>
+                      <div className="space-y-2 max-h-48 overflow-y-auto">
+                        {Array.from({ length: Math.min(notifications, 3) }, (_, i) => (
+                          <div key={i} className="flex items-start space-x-3 p-2 rounded-lg hover:bg-gray-50">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div className="flex-1">
+                              <p className="text-sm text-gray-800">New destination added to your favorites</p>
+                              <p className="text-xs text-gray-500 mt-1">2 minutes ago</p>
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-3 pt-3 border-t border-gray-100">
-                      <Link to="/notifications" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
-                        View all notifications
-                      </Link>
+                        ))}
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-gray-100">
+                        <Link to="/notifications" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                          View all notifications
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
+
+              {/* Mobile Login/Signup Buttons - Show when NOT authenticated */}
+              {!isAuthenticated && (
+                <div className="flex items-center space-x-2">
+                  <Link
+                    to="/login"
+                    className="px-3 py-1.5 text-xs font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300 border border-gray-300 rounded-full hover:border-blue-400 hover:bg-blue-50"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="px-3 py-1.5 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white text-xs font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
 
               {/* Enhanced User Icon - Mobile with working functionality */}
               {isAuthenticated && (
