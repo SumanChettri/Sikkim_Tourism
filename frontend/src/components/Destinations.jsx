@@ -10,7 +10,7 @@ const destinations = [
     image: "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg",
   },
   {
-    id: 2,
+    id: 2, 
     title: "Tarey Bhir",
     description:
       "Stunning viewpoint offering panoramic vistas of rolling hills and the majestic Kanchenjunga range",

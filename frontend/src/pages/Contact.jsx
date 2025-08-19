@@ -284,16 +284,16 @@ export default function Contact() {
               </div>
               
               <div className="space-y-6">
-                {team.map((member, index) => (
+        {team.map((member, index) => (
                   <motion.div
-                    key={index}
+            key={index}
                     variants={itemVariants}
                     className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:-translate-y-1"
-                  >
+          >
                     <div className="flex items-start space-x-4">
-                      <img
-                        src={member.image}
-                        alt={member.name}
+            <img
+              src={member.image}
+              alt={member.name}
                         className="w-20 h-20 rounded-xl object-cover border-4 border-gray-100 group-hover:border-blue-200 transition-colors duration-300"
                       />
                       <div className="flex-1 min-w-0">
@@ -315,8 +315,8 @@ export default function Contact() {
                         
                         {/* Contact & Social Links */}
                         <div className="flex items-center space-x-4">
-                          <a
-                            href={`mailto:${member.email}`}
+            <a
+              href={`mailto:${member.email}`}
                             className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
                             title="Send Email"
                           >
@@ -339,13 +339,13 @@ export default function Contact() {
                             title="LinkedIn Profile"
                           >
                             <FaLinkedin className="w-4 h-4" />
-                          </a>
-                        </div>
+            </a>
+          </div>
                       </div>
                     </div>
                   </motion.div>
-                ))}
-              </div>
+        ))}
+      </div>
             </motion.div>
           </div>
         </div>
@@ -380,7 +380,7 @@ export default function Contact() {
               </div>
             </div>
           </motion.div>
-        </div>
+    </div>
       </section>
     </motion.div>
   );

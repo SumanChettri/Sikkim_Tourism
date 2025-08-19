@@ -31,7 +31,7 @@ const HeroSection = () => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="relative flex items-center justify-center h-[70vh] sm:h-[80vh] md:h-[90vh] lg:h-screen overflow-hidden mx-2 md:mx-4 lg:mx-6 my-2 md:my-4 lg:my-6"
+      className="relative flex items-center justify-center h-[70vh] sm:h-[80vh] md:h-[90vh] lg:h-screen overflow-hidden mx-2 md:mx-4 lg:mx-6 my-2 md:my-4 lg:my-6 mb-20 md:mb-28 lg:mb-36"
     >
       {/* Background Container with Box Effect */}
       <div className="relative w-full h-full rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-slate-800/20 to-slate-900/20 backdrop-blur-sm border border-white/10">
@@ -59,7 +59,7 @@ const HeroSection = () => {
         {/* Content Container - Perfect Vertical Alignment */}
         <div className="relative z-20 h-full flex items-center px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
           {/* Content Stack - Perfect Vertical Line */}
-          <div className="space-y-4 sm:space-y-6 md:space-y-8 -mt-8 sm:-mt-4 md:mt-0">
+          <div className="space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-8 -mt-4 sm:-mt-6 md:-mt-8 lg:-mt-10">
             {/* Badge - Perfectly Aligned */}
             <motion.div variants={itemVariants} className="hero-badge w-fit shadow-xl backdrop-blur-md">
               <span className="hero-badge-dot" />
@@ -71,7 +71,7 @@ const HeroSection = () => {
               variants={itemVariants}
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-[1.05] drop-shadow-2xl"
             >
-              <span className="text-white/90">Plan your</span> <br className="hidden sm:block" />
+              <span className="text-white/90">Plan your</span>{" "}
               <span className="hero-title-accent">Trip</span>
             </motion.h1>
 
@@ -85,14 +85,14 @@ const HeroSection = () => {
             {/* Button Container - Perfect Vertical Alignment */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-start items-stretch sm:items-start"
+              className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-6 justify-start items-stretch sm:items-start"
             >
               {/* Primary Button */}
               <motion.a
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 href="/destinations"
-                className="btn-glow text-xs sm:text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 w-full sm:w-auto text-center shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="btn-glow text-xs sm:text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 lg:py-4 w-full sm:w-auto text-center shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 Browse Destinations
               </motion.a>
@@ -102,7 +102,7 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 href="/itinerary-planner"
-                className="btn-glass-light text-xs sm:text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 w-full sm:w-auto text-center shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="btn-glass-light text-xs sm:text-sm md:text-base lg:text-lg px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 lg:py-4 w-full sm:w-auto text-center shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 Plan Your Trip
               </motion.a>
