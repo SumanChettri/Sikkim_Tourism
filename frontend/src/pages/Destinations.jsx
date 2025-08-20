@@ -31,12 +31,10 @@ const Destinations = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary to-secondary text-white py-20">
         <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          <h3 className="text-4xl md:text-6xl font-bold mb-4">
             Explore Sikkim
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-            Discover the mystical beauty of the Himalayas, ancient monasteries, and pristine landscapes
-          </p>
+          </h3>
+        
         </div>
       </section>
 

@@ -115,7 +115,7 @@
   }
   
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   .bg-theme-primary {
@@ -197,6 +197,57 @@
   
   .navbar-link-default {
     @apply text-gray-700 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-emerald-500 hover:shadow-lg hover:scale-105;
+  }
+  
+  /* Responsive navbar utilities */
+  .navbar-responsive {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .navbar-mobile-optimized {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Navbar layout utilities */
+  .navbar-flex-center {
+    @apply flex-1 flex justify-center;
+  }
+  
+  .navbar-right-spacing {
+    @apply ml-4;
+  }
+  
+  .navbar-logo-spacing {
+    @apply mr-8;
+  }
+  
+  /* Search Modal Styles */
+  .search-modal-enter {
+    @apply opacity-0 scale-95;
+  }
+  
+  .search-modal-enter-active {
+    @apply opacity-100 scale-100 transition-all duration-300 ease-out;
+  }
+  
+  .search-modal-exit {
+    @apply opacity-100 scale-100;
+  }
+  
+  .search-modal-exit-active {
+    @apply opacity-0 scale-95 transition-all duration-200 ease-in;
+  }
+  
+  .search-input-focus {
+    @apply ring-2 ring-emerald-500 border-transparent shadow-lg;
+  }
+  
+  .search-suggestion-hover {
+    @apply bg-emerald-100 text-emerald-700 transform scale-105 shadow-md;
+  }
+  
+  .search-category-hover {
+    @apply bg-gray-100 transform scale-105 shadow-md;
   }
   
   /* Enhanced tooltips */
