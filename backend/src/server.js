@@ -16,10 +16,10 @@ app.use(helmet());
 // CORS configuration - Allow both development ports
 app.use(cors({
   origin: [
-    process.env.FRONTEND_URL || 'http://localhost:5173',
-    'http://localhost:5173', // Vite default port
-    'http://localhost:3000'  // Create React App default port
-  ],
+    'http://localhost:5173', // Vite default port (your current frontend)
+    'http://localhost:3000', // Create React App default port (fallback)
+    process.env.FRONTEND_URL // Environment variable override
+  ].filter(Boolean), // Remove any undefined values
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']

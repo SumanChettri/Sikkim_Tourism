@@ -152,8 +152,8 @@ const ItineraryPlanner = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary to-secondary text-white py-20">
         <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">AI Itinerary Planner</h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">AI Itinerary Planner</h1>
+          <p className="text-xl md:text-1xl text-white/90 max-w-3xl mx-auto">
             Let our AI create the perfect personalized itinerary for your Sikkim adventure
           </p>
         </div>
